@@ -1,0 +1,69 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/bill/bill",
+			"style": {
+				"navigationBarTitleText": "口袋账本"
+			}
+		},
+		{
+			"path": "pages/user/userInfo",
+			"style": {
+				"navigationBarTitleText": "口袋账本"
+			}
+		},
+		{
+			"path": "pages/chart/chart",
+			"style": {
+				"navigationBarTitleText": "口袋账本"
+			}
+		},
+		{
+			"path": "pages/detail/detail",
+			"style": {
+				"navigationBarTitleText": "口袋账本"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {},
+	"tabBar": {
+		"color": "#99999",
+		"selectedColor": "#f4ea2a",
+		"borderStyle": "white",
+		"backgroundColor": "#f8f8f8",
+		"height": "61rpx",
+		"fontSize": "13px",
+		"list": [
+			{
+				"pagePath": "pages/detail/detail"
+				// "text": "明细",
+				// "iconPath": "static/tabbar/details.png",
+				// "selectedIconPath": "static/tabbar/details_check.png"
+			},
+			{
+				"pagePath": "pages/chart/chart"
+				// "text": "图表",
+				// "iconPath": "static/tabbar/picter.png",
+				// "selectedIconPath": "static/tabbar/picter_check.png"
+			},
+			{
+				"pagePath": "pages/bill/bill"
+				// "text": "账单",
+				// "iconPath": "/static/tabbar/bill.png",
+				// "selectedIconPath": "static/tabbar/bill_check.png"
+			},
+			{
+				"pagePath": "pages/user/userInfo"
+				// "text": "我的",
+				// "iconPath": "static/tabbar/user.png",
+				// "selectedIconPath": "static/tabbar/user_check.png"
+			}
+		]
+	}
+}
