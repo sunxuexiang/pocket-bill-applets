@@ -1,15 +1,11 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		
 		{
-			"path": "pages/bill/bill",
+			"path": "pages/detail/detail",
 			"style": {
-				"navigationBarTitleText": "口袋账本"
-			}
-		},
-		{
-			"path": "pages/user/userInfo",
-			"style": {
-				"navigationBarTitleText": "口袋账本"
+				"navigationBarTitleText": "口袋账本",
+				"navigationBarBackgroundColor": "#ffda66"
 			}
 		},
 		{
@@ -19,7 +15,14 @@
 			}
 		},
 		{
-			"path": "pages/detail/detail",
+			"path": "pages/bill/bill",
+			"style": {
+				"navigationBarTitleText": "口袋账本",
+				"navigationBarBackgroundColor": "#ffda66"
+			}
+		},
+		{
+			"path": "pages/user/userInfo",
 			"style": {
 				"navigationBarTitleText": "口袋账本"
 			}
