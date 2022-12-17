@@ -9,7 +9,8 @@
 		{
 			"path": "pages/user/userInfo",
 			"style": {
-				"navigationBarTitleText": "口袋账本"
+				"navigationBarTitleText": "口袋账本",
+				"navigationBarBackgroundColor": "#ffda66"
 			}
 		},
 		{
