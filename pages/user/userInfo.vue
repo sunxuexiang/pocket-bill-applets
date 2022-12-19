@@ -126,7 +126,7 @@
 	.check-day-text{
 		margin-top: 26rpx;
 		font-weight: bold;
-		font-size: 13px;
+		font-size: 12px;
 		margin-left: 9px;
 		color: #b3b3b3;
 	}
