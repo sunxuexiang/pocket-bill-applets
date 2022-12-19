@@ -17,7 +17,19 @@
 	        components:{
 	            tabBar
 	        },
-	        methods: {}
+	        methods: {},
+			onLoad:()=>{
+				let userinfo = uni.getStorageSync('token');
+				if (userinfo == '') {
+					uni.navigateTo({
+						url: '/pages/login/login',
+						success:()=>{
+							//跳转完页面后再关闭启动页
+							plus.navigator.closeSplashscreen();
+						}
+					});
+				}
+			}
 	    };
 </script>
 

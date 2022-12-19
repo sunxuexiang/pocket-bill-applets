@@ -70,6 +70,18 @@
 			onShow(e) {
 				this.totalprice(this.price)
 			},
+			onLoad:()=>{
+				let userinfo = uni.getStorageSync('token');
+				if (userinfo == '') {
+					uni.navigateTo({
+						url: '/pages/login/login',
+						success:()=>{
+							//跳转完页面后再关闭启动页
+							plus.navigator.closeSplashscreen();
+						}
+					});
+				}
+			},
 	        methods: {
 				 totalprice(num) {
 					// 判断是否有小数点
