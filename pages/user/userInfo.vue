@@ -5,21 +5,21 @@
 		</view>
 		<view class="head-info">
 			<view class="head-img">
-				<image src="../../static/wechat.jpg" class="class-img"></image>
+				<image :src="userInfo.userImg" class="class-img"></image>
 			</view>
 			<view class="head-name-class">
-				<text>Hulk.sun</text>
+				<text>{{userInfo.userName}}</text>
 			</view>
 			<view class="check-days">
-				<view style="margin-left: 52rpx;font-weight: bold;font-size: 40rpx;color: #737373;"><text>1</text></view>
+				<view style="margin-left: 52rpx;font-weight: bold;font-size: 40rpx;color: #737373;"><text>{{userInfo.recordCount}}</text></view>
 				<view class="check-day-text">打卡天数</view>
 			</view>
 			<view class="book-keep-days">
-				<view style="margin-left: 52rpx;font-weight: bold;font-size: 40rpx;color: #737373;"><text>2</text></view>
-				<view class="check-day-text">记账天数</view>
+				<view style="margin-left: 52rpx;font-weight: bold;font-size: 40rpx;color: #737373;"><text>{{userInfo.recordCount}}</text></view>
+				<view class="check-day-text">记账次数</view>
 			</view>
 			<view class="book-days">
-				<view style="margin-left: 52rpx;font-weight: bold;font-size: 40rpx;color: #737373;"><text>3</text></view>
+				<view style="margin-left: 52rpx;font-weight: bold;font-size: 40rpx;color: #737373;"><text>{{userInfo.recordCount}}</text></view>
 				<view class="check-day-text">记账天数</view>
 			</view>
 		</view>
@@ -55,17 +55,66 @@
 </template>
 
 <script>
-	import tabBar from '@/components/tabbar/tabbar.vue'
+		import tabBar from '@/components/tabbar/tabbar.vue'
+		// 进入js模块
+		import urls from '../../api/request.js'
+		import {requestApi} from '../../api/api.js'
 	    export default {
 	        data() {
 	            return {
+					userInfo: {userName:'',userImg:'',recordCount:''}
 	            };
 	        },
 	        components:{
 	            tabBar
 	        },
-	        methods: {}
-	    };
+			onLoad:function(){
+				let userinfo = uni.getStorageSync('token');
+				if (userinfo == '') {
+					uni.navigateTo({
+						url: '/pages/login/login',
+						success:()=>{
+							//跳转完页面后再关闭启动页
+							plus.navigator.closeSplashscreen();
+						}
+					});
+				} else {
+					let queryUser = urls.m().queryUser
+					requestApi(queryUser,null).then((res)=>{
+						let data = res[1].data.msg
+						this.userInfo.userName=data.userName;
+						this.userInfo.userImg=data.userImg
+					})
+					// uni.request({
+					// 	url:'http://localhost:8083/bill-user/queryUser',
+					// 	header: {Authorization:uni.getStorageSync('token')},
+					// 	method:'post',
+					// 	success:(res)=>{ 
+					// 		let data = res.data.msg
+					// 		this.userInfo.userName=data.userName;
+					// 		this.userInfo.userImg=data.userImg
+					// 	} 
+					// }); 
+					let queryRecordByUserId = urls.m().queryRecordByUserId
+					requestApi(queryRecordByUserId,null).then((res)=>{
+						debugger;
+						let data = res[1].data.msg
+						this.userInfo.recordCount = data
+					})
+					// uni.request({
+					// 	url:'http://localhost:8083/bill-record/queryRecordByUserId',
+					// 	header: {Authorization:uni.getStorageSync('token')},
+					// 	method:'post',
+					// 	success:(res)=>{ 
+					// 		let data = res.data.msg 
+					// 		this.userInfo.recordCount = data
+					// 	}
+					// });
+				}
+			},
+	        methods: {
+			},
+	    }
 </script>
 
 <style>
@@ -115,7 +164,7 @@
 		height: 100%;
 	}
 	.head-name-class{
-		width: 50rpx;
+		width: 300rpx;
 		margin:-90rpx 0rpx 0rpx 300rpx
 	}
 	.check-days{
@@ -174,4 +223,6 @@
 		background-color: #f2f2f2;
 		height: 100vh;
 	}
+	
+	
 </style>
