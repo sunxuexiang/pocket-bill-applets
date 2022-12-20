@@ -27,7 +27,34 @@
 				"navigationBarTitleText": "口袋账本"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/detail/myBookList/myBookList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的账本",
+                "navigationBarBackgroundColor": "#ffda66"
+            }
+            
+        }
+        ,{
+            "path" : "pages/detail/billShare/billShare",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "共享账本",
+                "navigationBarBackgroundColor": "#ffda66"
+            }
+            
+        }
+        ,{
+            "path" : "pages/detail/detailSearch/detailSearch",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "账单搜索",
+                "navigationBarBackgroundColor": "#ffda66"
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
