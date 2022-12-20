@@ -82,34 +82,15 @@
 					let queryUser = urls.m().queryUser
 					requestApi(queryUser,null).then((res)=>{
 						let data = res[1].data.msg
-						this.userInfo.userName=data.userName;
+						this.userInfo.userName=data.userName; 
 						this.userInfo.userImg=data.userImg
-					})
-					// uni.request({
-					// 	url:'http://localhost:8083/bill-user/queryUser',
-					// 	header: {Authorization:uni.getStorageSync('token')},
-					// 	method:'post',
-					// 	success:(res)=>{ 
-					// 		let data = res.data.msg
-					// 		this.userInfo.userName=data.userName;
-					// 		this.userInfo.userImg=data.userImg
-					// 	} 
-					// }); 
+					});
 					let queryRecordByUserId = urls.m().queryRecordByUserId
 					requestApi(queryRecordByUserId,null).then((res)=>{
 						debugger;
 						let data = res[1].data.msg
 						this.userInfo.recordCount = data
 					})
-					// uni.request({
-					// 	url:'http://localhost:8083/bill-record/queryRecordByUserId',
-					// 	header: {Authorization:uni.getStorageSync('token')},
-					// 	method:'post',
-					// 	success:(res)=>{ 
-					// 		let data = res.data.msg 
-					// 		this.userInfo.recordCount = data
-					// 	}
-					// });
 				}
 			},
 	        methods: {
