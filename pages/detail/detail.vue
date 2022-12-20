@@ -1,5 +1,4 @@
 <template>
-<<<<<<< .mine
 	<view>
 		<tab-bar :currentPage="0"></tab-bar>
 		<view class="headStyle">
@@ -64,79 +63,15 @@
 			</view>
 		</view>
 	</view>
-=======
-	<view class="head-backColor">
-		<view class="head-class">
-			
-		</view>
-		<tab-bar :currentPage="0"></tab-bar>
-	</view>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> .theirs
 </template>
 
 <script>
 	import tabBar from '@/components/tabbar/tabbar.vue'
 	    export default {
-<<<<<<< .mine
 			name: "DatePicker",
+			components:{
+			    tabBar
+			},
 			props: {
 				defaultValue: {
 					// 默认值
@@ -279,6 +214,17 @@
 				}
 			},
 			onLoad(){
+				let userinfo = uni.getStorageSync('token');
+				if (userinfo == '') {
+					uni.navigateTo({
+						url: '/pages/login/login',
+						success:()=>{
+							//跳转完页面后再关闭启动页
+							plus.navigator.closeSplashscreen();
+						}
+					});
+				}
+				
 				const selectBill=uni.getStorageSync('selectBill');
 				if(selectBill !==""){
 					this.selectBill=JSON.parse(selectBill).bookName;
@@ -291,165 +237,7 @@
 				
 			}
 		};
-</script>s
-=======
-	        data() {
-	            return {
-	            };
-	        },
-	        components:{
-	            tabBar
-	        },
-	        methods: {},
-			onLoad:()=>{
-				let userinfo = uni.getStorageSync('token');
-				if (userinfo == '') {
-					uni.navigateTo({
-						url: '/pages/login/login',
-						success:()=>{
-							//跳转完页面后再关闭启动页
-							plus.navigator.closeSplashscreen();
-						}
-					});
-				}
-			}
-	    };
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> .theirs
 
 <style lang="scss" scoped>
 	.flex{
