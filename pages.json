@@ -11,7 +11,8 @@
 		{
 			"path": "pages/chart/chart",
 			"style": {
-				"navigationBarTitleText": "口袋账本"
+				"navigationBarTitleText": "口袋账本",
+				"navigationBarBackgroundColor": "#ffda66"
 			}
 		},
 		{
@@ -24,7 +25,15 @@
 		{
 			"path": "pages/user/userInfo",
 			"style": {
-				"navigationBarTitleText": "口袋账本"
+				"navigationBarTitleText": "口袋账本",
+				"navigationBarBackgroundColor": "#ffda66"
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "授权登录",
+				"navigationBarBackgroundColor": "#ffda66"
 			}
 		}
 	    ,{
