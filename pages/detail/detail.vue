@@ -228,15 +228,13 @@
 				this.selectBill=JSON.parse(selectBill).bookName;
 			}else{
 				//需要从数据库中查
-				requestApi(urls.m().queryUser,null).then((res)=>{
+				
+				requestApi(urls.m().queryDefaultBillByUserId,data).then((res)=>{
 					debugger;
-					let data = res.result.userId;
-					requestApi(urls.m().queryDefaultBillByUserId,data).then((res)=>{
-						debugger;
-						uni.setStorageSync("selectBill",res.result.bookName);
-						this.selectBill=res.result.bookName;
-					});
+					uni.setStorageSync("selectBill",res.result.bookName);
+					this.selectBill=res.result.bookName;
 				});
+				
 			}
 		}
 	};

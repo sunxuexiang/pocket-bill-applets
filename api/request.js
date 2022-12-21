@@ -1,5 +1,6 @@
 // 公共地址
 let url = 'http://localhost:8083/'
+let gatprojectUrl = 'http://localhost:8082/'
 
 const urls = class{
 	constructor() {
@@ -19,7 +20,11 @@ const urls = class{
 		
 		let queryBillByUserId=`${url}bill-manage/queryBillByUserId`
 		
-		return {queryUser,queryRecordByUserId,queryBillDetailsCustomize,queryDefaultBillByUserId,queryBillByUserId}
+		let queryAnnualSummaryReportList = `${gatprojectUrl}billBookAnnualSummaryController/queryAnnualSummaryReportList`
+		
+		return {queryUser,queryRecordByUserId,
+		queryBillDetailsCustomize,queryDefaultBillByUserId,
+		queryBillByUserId,queryAnnualSummaryReportList}
 	}
 }
 export default urls 
