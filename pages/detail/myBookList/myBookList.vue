@@ -16,22 +16,24 @@
 </template>
 
 <script>
+	import urls from '../../../api/request.js'
+	import {requestApi} from '../../../api/api.js'
 	export default {
 		onLoad(option) { //option为object类型，会序列化上个页面传递的参数
-			uni.request({
-				url:'http://localhost:8083/bill-manage/queryBillByUserId',
-				method:"POST",
-				success:(res)=>{
-					let result=res.data.result;
-					for(let i=0;i<result.length;i++){
+			
+			requestApi(urls.m().queryBillByUserId,null).then((res)=>{
+				debugger;
+				let result=res[1].data.result;
+				for(let i=0;i<result.length;i++){
+					if(result[i].isDefault==='1'){
+						result[i].select=true;
+					}else{
 						result[i].select=false;
 					}
-					this.bill=result;
-				},
-				fail(err) {
-					
 				}
-			})
+				this.bill=result;
+			});
+			
 		},
 		data() {
 			return {
@@ -54,8 +56,6 @@
 				setTimeout(function(){
 					that.switchTab();	
 				},300);
-				
-				
 			},
 			switchTab(){
 				uni.switchTab({
@@ -71,7 +71,6 @@
 		},
 		filters:{
 			formatDate(date){
-				console.log(date)
 				var date = new Date(date),
 				year = date.getFullYear(),
 				month = date.getMonth() + 1,

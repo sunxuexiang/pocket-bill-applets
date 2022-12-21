@@ -12,7 +12,14 @@ const urls = class{
 		let queryRecordByUserId = `${url}bill-record/queryRecordByUserId`
 		// 登录添加用户信息
 		let addUser = `${url}bill-user/addUser`
-		return {queryUser,queryRecordByUserId}
+		
+		let queryBillDetailsCustomize=`${url}billBookInfoController/queryBillDetailsCustomize`
+		
+		let queryDefaultBillByUserId=`${url}billBookInfoController/queryDefaultBillByUserId`
+		
+		let queryBillByUserId=`${url}bill-manage/queryBillByUserId`
+		
+		return {queryUser,queryRecordByUserId,queryBillDetailsCustomize,queryDefaultBillByUserId,queryBillByUserId}
 	}
 }
 export default urls 
