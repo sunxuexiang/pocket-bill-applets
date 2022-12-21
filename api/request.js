@@ -1,5 +1,6 @@
 // 公共地址
 let url = 'http://localhost:8083/'
+let gatprojectUrl = 'http://localhost:8082/'
 
 const urls = class{
 	constructor() {
@@ -12,7 +13,9 @@ const urls = class{
 		let queryRecordByUserId = `${url}bill-record/queryRecordByUserId`
 		// 登录添加用户信息
 		let addUser = `${url}bill-user/addUser`
-		return {queryUser,queryRecordByUserId}
+		// 查询账单列表
+		let queryAnnualSummaryReportList = `${gatprojectUrl}billBookAnnualSummaryController/queryAnnualSummaryReportList`
+		return {queryUser,queryRecordByUserId,queryAnnualSummaryReportList}
 	}
 }
 export default urls 

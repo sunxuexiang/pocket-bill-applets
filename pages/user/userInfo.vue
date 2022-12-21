@@ -68,7 +68,7 @@
 	        components:{
 	            tabBar
 	        },
-			onLoad:function(){
+			onShow:function(){
 				let userinfo = uni.getStorageSync('token');
 				if (userinfo == '') {
 					uni.navigateTo({
@@ -87,7 +87,6 @@
 					});
 					let queryRecordByUserId = urls.m().queryRecordByUserId
 					requestApi(queryRecordByUserId,null).then((res)=>{
-						debugger;
 						let data = res[1].data.msg
 						this.userInfo.recordCount = data
 					})

@@ -87,8 +87,7 @@
             changeItem(item) {
 				console.log(item.id);
                 if (item.id == 2) {
-					debugger;
-                    uni.switchTab({
+                    uni.redirectTo({
                     	url:item.path
                     })
                 } else {
