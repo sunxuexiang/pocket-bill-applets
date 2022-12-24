@@ -1,6 +1,7 @@
 // 公共地址
-let url = 'http://localhost:8083/'
+let userUrl = 'http://localhost:8083/'
 let gatprojectUrl = 'http://localhost:8082/'
+let detailsUrl = 'http://localhost:8081/'
 
 const urls = class{
 	constructor() {
@@ -8,19 +9,21 @@ const urls = class{
 	}
 	static m(){
 		// 查询用户
-		let queryUser = `${url}bill-user/queryUser`
+		let queryUser = `${userUrl}bill-user/queryUser`
 		// 查询单个用户信息
-		let queryRecordByUserId = `${url}bill-record/queryRecordByUserId`
+		let queryRecordByUserId = `${userUrl}bill-record/queryRecordByUserId`
 		// 登录添加用户信息
-		let addUser = `${url}bill-user/addUser`
+		let addUser = `${userUrl}bill-user/addUser`
 		
-		let queryBillDetailsCustomize=`${url}billBookInfoController/queryBillDetailsCustomize`
+		let queryBillDetailsCustomize=`${detailsUrl}billBookInfoController/queryBillDetailsCustomize`
 		
-		let queryDefaultBillByUserId=`${url}billBookInfoController/queryDefaultBillByUserId`
+		let queryDefaultBillByUserId=`${userUrl}billBookInfoController/queryDefaultBillByUserId`
 		
-		let queryBillByUserId=`${url}bill-manage/queryBillByUserId`
+		let queryBillByUserId=`${userUrl}bill-manage/queryBillByUserId`
 		
 		let queryAnnualSummaryReportList = `${gatprojectUrl}billBookAnnualSummaryController/queryAnnualSummaryReportList`
+		
+		let updateDefaultBill = `${userUrl}/bill-manage/updateDefaultBill`
 		
 		return {queryUser,queryRecordByUserId,
 		queryBillDetailsCustomize,queryDefaultBillByUserId,

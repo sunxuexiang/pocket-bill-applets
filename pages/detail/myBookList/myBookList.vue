@@ -20,12 +20,10 @@
 	import {requestApi} from '../../../api/api.js'
 	export default {
 		onLoad(option) { //option为object类型，会序列化上个页面传递的参数
-			
 			requestApi(urls.m().queryBillByUserId,null).then((res)=>{
-				debugger;
 				let result=res[1].data.result;
 				for(let i=0;i<result.length;i++){
-					if(result[i].isDefault==='1'){
+					if(result[i].bookType==='1'){
 						result[i].select=true;
 					}else{
 						result[i].select=false;
@@ -33,7 +31,6 @@
 				}
 				this.bill=result;
 			});
-			
 		},
 		data() {
 			return {
@@ -52,10 +49,13 @@
 					}
 				}
 				uni.setStorageSync('selectBill',JSON.stringify(selectBill));
-				let that=this;	
-				setTimeout(function(){
-					that.switchTab();	
-				},300);
+				let updateDefaultBill="http://localhost:8083/bill-manage/updateDefaultBill?bookId="+selectBill.bookId;
+				requestApi(updateDefaultBill,null).then((res)=>{
+					let that=this;
+					setTimeout(function(){
+						that.switchTab();	
+					},300);
+				});
 			},
 			switchTab(){
 				uni.switchTab({
