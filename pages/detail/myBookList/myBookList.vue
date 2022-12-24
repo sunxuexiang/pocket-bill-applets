@@ -2,16 +2,13 @@
 	<view>
 		<view class="out">
 			<view v-for="(item,index) in bill" :key="index" @click="selectBill(index)">
-				
 				<view class="row" :class="{active:item.select}">
 					<view style="font-weight: bold;">{{item.bookName}}</view>	
 					<view style="font-size: 13px; margin-top: 40rpx;">创建时间</view>
 					<view style="font-size: 10px; margin-top: -50rpx;">{{item.createDate | formatDate}}</view>	
 				</view>
-				
 			</view>
 		</view>
-		
 	</view>
 </template>
 
@@ -49,7 +46,7 @@
 					}
 				}
 				uni.setStorageSync('selectBill',JSON.stringify(selectBill));
-				let updateDefaultBill="http://localhost:8083/bill-manage/updateDefaultBill?bookId="+selectBill.bookId;
+				let updateDefaultBill=urls.m().updateDefaultBill+"?bookId="+selectBill.bookId;
 				requestApi(updateDefaultBill,null).then((res)=>{
 					let that=this;
 					setTimeout(function(){
@@ -90,15 +87,17 @@
 <style lang="scss" scoped>
 	.out{
 		display: flex;
-		margin-top: 30rpx;
+		margin-top: 10rpx;
+		flex-flow: wrap;
 		.row{
 			width: 220rpx;
 			height: 260rpx;
 			margin-left: 25rpx;
+			margin-top: 20rpx;
 			text-indent: 30rpx;
 			line-height: 90rpx;
 			background-color: #d9d9d9;
-			justify-content: center;
+			justify-content: unsafe center;
 			border-radius: 13px;
 			
 		}

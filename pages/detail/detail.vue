@@ -226,7 +226,6 @@
 			queryBillDetailsCustomize(){
 				const selectBill=JSON.parse(uni.getStorageSync('selectBill'));
 				
-				debugger;
 				let year=this.year.substr(0,this.year.length-1);
 				let month=this.month.substr(0,this.month.length-1);
 				
@@ -240,9 +239,7 @@
 				
 				let queryBillDetailsCustomize=urls.m().queryBillDetailsCustomize+"?bookId="+selectBill.bookId
 				+"&startTime="+startTime+"&endTime="+endTime;
-				
 				requestApi(queryBillDetailsCustomize,null).then((res)=>{
-					debugger;
 					this.monthIn=res[1].data.result.monthIn;
 					this.monthOut=res[1].data.result.monthOut;
 					this.billDetails=res[1].data.result.data;
@@ -264,7 +261,6 @@
 				});
 			}
 			const selectBill=JSON.parse(uni.getStorageSync('selectBill'));
-			debugger;
 			if(selectBill !==""){
 				this.selectBill=selectBill.bookName;
 				this.queryBillDetailsCustomize();
@@ -308,7 +304,7 @@
 		}
 		.expenseMoney{
 			font-size: 15px;
-			margin-left: 210rpx;
+			margin-left: 170rpx;
 		}
 		.billbook{
 			display: inline-block;
