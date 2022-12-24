@@ -25,6 +25,7 @@
 		},
 	methods: {
 			getUserProfile() {
+				debugger;
 				uni.login({
 				    provider: 'weixin',
 				    success: function (loginRes) {
@@ -68,7 +69,7 @@
 				    },
 				    fail: function (err) {
 				        // 登录授权失败  
-				        // err.code是错误码
+				        console.log(err);
 				    }
 				});
 			}

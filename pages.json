@@ -35,6 +35,13 @@
 				"navigationBarTitleText": "授权登录",
 				"navigationBarBackgroundColor": "#ffda66"
 			}
+		},
+		{
+			"path": "pages/addBill/addBill",
+			"style": {
+				"navigationBarTitleText": "记账",
+				"navigationBarBackgroundColor": "#ffda66"
+			}
 		}
 	    ,{
             "path" : "pages/detail/myBookList/myBookList",
