@@ -1,6 +1,13 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/detail/detail",
+			"style": {
+				"navigationBarTitleText": "口袋账本",
+				"navigationBarBackgroundColor": "#ffda66"
+			}
+		},
+		{
 			"path": "pages/bill/bill",
 			"style": {
 				"navigationBarTitleText": "口袋账本",
@@ -22,13 +29,6 @@
 			}
 		},
 		{
-			"path": "pages/detail/detail",
-			"style": {
-				"navigationBarTitleText": "口袋账本",
-				"navigationBarBackgroundColor": "#ffda66"
-			}
-		},
-		{
 			"path": "pages/login/login",
 			"style": {
 				"navigationBarTitleText": "授权登录",
@@ -39,6 +39,13 @@
 			"path": "pages/addBill/addBill",
 			"style": {
 				"navigationBarTitleText": "记账",
+				"navigationBarBackgroundColor": "#ffda66"
+			}
+		},
+		{
+			"path": "pages/setting/settingIcon",
+			"style": {
+				"navigationBarTitleText": "类别设置",
 				"navigationBarBackgroundColor": "#ffda66"
 			}
 		}

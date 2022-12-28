@@ -85,7 +85,6 @@
         methods: {
             // tab 切换
             changeItem(item) {
-				console.log(item.id);
                 if (item.id == 2) {
                     uni.redirectTo({
                     	url:item.path
