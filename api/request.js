@@ -1,5 +1,5 @@
 // 公共地址
-let url = 'http://localhost:8083/'
+let userUrl = 'http://localhost:8083/'
 let gatprojectUrl = 'http://localhost:8082/'
 let detailUrl = 'http://localhost:8081/'
 
@@ -9,23 +9,30 @@ const urls = class{
 	}
 	static m(){
 		// 查询用户
-		let queryUser = `${url}bill-user/queryUser`
+		let queryUser = `${userUrl}bill-user/queryUser`
 		// 查询单个用户信息
-		let queryRecordByUserId = `${url}bill-record/queryRecordByUserId`
+		let queryRecordByUserId = `${userUrl}bill-record/queryRecordByUserId`
 		// 登录添加用户信息
-		let addUser = `${url}bill-user/addUser`
-		// 查询账单列表
+		let addUser = `${userUrl}bill-user/addUser`
+		//查询用户账单自定义
+		let queryBillDetailsCustomize=`${detailUrl}billBookInfoController/queryBillDetailsCustomize`
+		//查询默认账单
+		let queryDefaultBillByUserId=`${userUrl}billBookInfoController/queryDefaultBillByUserId`
+		//查询用户所有账单
+		let queryBillByUserId=`${userUrl}bill-manage/queryBillByUserId`
+		//查询年度账单
 		let queryAnnualSummaryReportList = `${gatprojectUrl}billBookAnnualSummaryController/queryAnnualSummaryReportList`
 		// 查询记账列表所有图表
 		let queryBillType = `${url}bill-type/queryBillType`
-		// 查询默认账本
-		let queryDefaultBillByUserId = `${url}bill-manage/queryDefaultBillByUserId`
 		// 记账
 		let addBookInfo = `${detailUrl}billBookInfoController/addBookInfo`
 		// 删除类别 
 		let removeBillType = `${url}bill-type/removeBillType`
+    
+		//修改默认账单
+		let updateDefaultBill = `${userUrl}/bill-manage/updateDefaultBill`
 		return {queryUser,addUser,queryRecordByUserId,queryAnnualSummaryReportList
-		,queryBillType,queryDefaultBillByUserId,addBookInfo,removeBillType}
+		,queryBillType,queryDefaultBillByUserId,addBookInfo,removeBillType,queryBillByUserId,queryBillDetailsCustomize}
 	}
 }
 export default urls 
