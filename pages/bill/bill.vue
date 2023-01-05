@@ -93,11 +93,10 @@
 						}
 					});
 				} else {
-					let queryAnnualSummaryReportList = urls.m().queryAnnualSummaryReportList+'?year='+this.date+'&bookId='+2;
+					let queryAnnualSummaryReportList = urls.m().queryAnnualSummaryReportList+'?year='+this.date+'&bookId='+6;
 					requestApi(queryAnnualSummaryReportList,null).then((res)=>{
 						let data = res[1].data.result
 						this.list = res[1].data.result.data;
-						debugger;
 						this.totalprice(data.yearTotalBalance,'balane')
 						this.totalprice(data.yearTotalOut,'out')
 						this.totalprice(data.yearTotalIn,'in')

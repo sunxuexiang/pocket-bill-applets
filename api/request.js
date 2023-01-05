@@ -1,7 +1,7 @@
 // 公共地址
 let userUrl = 'http://localhost:8083/'
 let gatprojectUrl = 'http://localhost:8082/'
-let detailsUrl = 'http://localhost:8081/'
+let detailUrl = 'http://localhost:8081/'
 
 const urls = class{
 	constructor() {
@@ -15,15 +15,23 @@ const urls = class{
 		// 登录添加用户信息
 		let addUser = `${userUrl}bill-user/addUser`
 		//查询用户账单自定义
-		let queryBillDetailsCustomize=`${detailsUrl}billBookInfoController/queryBillDetailsCustomize`
+		let queryBillDetailsCustomize=`${detailUrl}billBookInfoController/queryBillDetailsCustomize`
 		//查询默认账单
 		let queryDefaultBillByUserId=`${userUrl}billBookInfoController/queryDefaultBillByUserId`
 		//查询用户所有账单
 		let queryBillByUserId=`${userUrl}bill-manage/queryBillByUserId`
 		//查询年度账单
 		let queryAnnualSummaryReportList = `${gatprojectUrl}billBookAnnualSummaryController/queryAnnualSummaryReportList`
+		// 查询记账列表所有图表
+		let queryBillType = `${url}bill-type/queryBillType`
+		// 记账
+		let addBookInfo = `${detailUrl}billBookInfoController/addBookInfo`
+		// 删除类别 
+		let removeBillType = `${url}bill-type/removeBillType`
+    
 		//修改默认账单
 		let updateDefaultBill = `${userUrl}/bill-manage/updateDefaultBill`
+
 		//修改账单权限批量
 		let updateShareBillBatch = `${userUrl}/bill-share/updateShareBillBatch`
 		//查询账单所有用户
@@ -38,6 +46,7 @@ const urls = class{
 		return {queryUser,queryRecordByUserId,queryBillDetailsCustomize,queryDefaultBillByUserId,
 		queryBillByUserId,queryAnnualSummaryReportList,updateDefaultBill,updateShareBillBatch,
 		queryUserByBookId,updateUserBillPermession,deleteUserBillPermession,addShare}
+
 	}
 }
 export default urls 

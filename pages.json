@@ -42,6 +42,13 @@
 				"navigationBarTitleText": "记账",
 				"navigationBarBackgroundColor": "#ffda66"
 			}
+		},
+		{
+			"path": "pages/setting/settingIcon",
+			"style": {
+				"navigationBarTitleText": "类别设置",
+				"navigationBarBackgroundColor": "#ffda66"
+			}
 		}
 	    ,{
             "path" : "pages/detail/myBookList/myBookList",

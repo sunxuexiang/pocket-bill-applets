@@ -81,13 +81,13 @@
 				} else {
 					let queryUser = urls.m().queryUser
 					requestApi(queryUser,null).then((res)=>{
-						let data = res[1].data.msg
+						let data = res[1].data.result
 						this.userInfo.userName=data.userName; 
 						this.userInfo.userImg=data.userImg
 					});
 					let queryRecordByUserId = urls.m().queryRecordByUserId
 					requestApi(queryRecordByUserId,null).then((res)=>{
-						let data = res[1].data.msg
+						let data = res[1].data.result
 						this.userInfo.recordCount = data
 					})
 				}
