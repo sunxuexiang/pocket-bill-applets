@@ -24,10 +24,20 @@ const urls = class{
 		let queryAnnualSummaryReportList = `${gatprojectUrl}billBookAnnualSummaryController/queryAnnualSummaryReportList`
 		//修改默认账单
 		let updateDefaultBill = `${userUrl}/bill-manage/updateDefaultBill`
+		//修改账单权限批量
+		let updateShareBillBatch = `${userUrl}/bill-share/updateShareBillBatch`
+		//查询账单所有用户
+		let queryUserByBookId = `${userUrl}/bill-share/queryUserByBookId`
 		
-		return {queryUser,queryRecordByUserId,
-		queryBillDetailsCustomize,queryDefaultBillByUserId,
-		queryBillByUserId,queryAnnualSummaryReportList,updateDefaultBill}
+		let updateUserBillPermession=`${userUrl}/bill-share/updateUserBillPermession`
+		
+		let deleteUserBillPermession=`${userUrl}/bill-share/deleteUserBillPermession`
+		
+		let addShare=`${userUrl}/bill-share/addShare`
+		
+		return {queryUser,queryRecordByUserId,queryBillDetailsCustomize,queryDefaultBillByUserId,
+		queryBillByUserId,queryAnnualSummaryReportList,updateDefaultBill,updateShareBillBatch,
+		queryUserByBookId,updateUserBillPermession,deleteUserBillPermession,addShare}
 	}
 }
 export default urls 
