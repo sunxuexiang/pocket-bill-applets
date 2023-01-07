@@ -26,23 +26,23 @@
 						result[i].select=false;
 					}
 				}
-				this.bill=result;
+				this.bills=result;
 			});
 		},
 		data() {
 			return {
-				bill:[]
+				bills:[]
 			};
 		},
 		methods:{
 			selectBill(index){
 				let selectBill;
-				for(let i=0;i<this.bill.length;i++){
+				for(let i=0;i<this.bills.length;i++){
 					if(i==index){
-						selectBill=this.bill[i];
-						this.bill[i].select=true;
+						selectBill=this.bills[i];
+						this.bills[i].select=true;
 					}else{
-						this.bill[i].select=false;
+						this.bills[i].select=false;
 					}
 				}
 				uni.setStorageSync('selectBill',JSON.stringify(selectBill));
