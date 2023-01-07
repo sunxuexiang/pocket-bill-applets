@@ -28,20 +28,15 @@ const urls = class{
 		let addBookInfo = `${detailUrl}billBookInfoController/addBookInfo`
 		// 删除类别 
 		let removeBillType = `${url}bill-type/removeBillType`
-<<<<<<< HEAD
 		// 查询系统类别
 		let querySystemIcon = `${url}bill-type/querySystemIcon`
 		// 添加类别
 		let addBillType = `${url}bill-type/addBillType`
-		return {queryUser,addUser,queryRecordByUserId,queryAnnualSummaryReportList
-		,queryBillType,queryDefaultBillByUserId,addBookInfo,removeBillType,querySystemIcon,addBillType}
-=======
-    
 		//修改默认账单
 		let updateDefaultBill = `${userUrl}/bill-manage/updateDefaultBill`
 		return {queryUser,addUser,queryRecordByUserId,queryAnnualSummaryReportList
-		,queryBillType,queryDefaultBillByUserId,addBookInfo,removeBillType,queryBillByUserId,queryBillDetailsCustomize}
->>>>>>> 6f81a77f107f1196653808e1640efcf48058fa93
+		,queryBillType,queryDefaultBillByUserId,addBookInfo,removeBillType,querySystemIcon,addBillType,updateDefaultBill
+		,queryBillDetailsCustomize,queryBillByUserId}
 	}
 }
 export default urls 
