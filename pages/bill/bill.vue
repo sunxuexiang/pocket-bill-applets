@@ -137,7 +137,7 @@
 						}
 					}
 				},
-				dateChange(e) {
+				dateChange(e) {  
 					this.date = e.target.value.slice(0,7);
 					let queryAnnualSummaryReportList = urls.m().queryAnnualSummaryReportList+'?year='+this.date+'&bookId='+2;
 					requestApi(queryAnnualSummaryReportList,null).then((res)=>{
