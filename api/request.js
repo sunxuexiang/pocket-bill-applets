@@ -24,8 +24,12 @@ const urls = class{
 		let addBookInfo = `${detailUrl}billBookInfoController/addBookInfo`
 		// 删除类别 
 		let removeBillType = `${url}bill-type/removeBillType`
+		// 查询系统类别
+		let querySystemIcon = `${url}bill-type/querySystemIcon`
+		// 添加类别
+		let addBillType = `${url}bill-type/addBillType`
 		return {queryUser,addUser,queryRecordByUserId,queryAnnualSummaryReportList
-		,queryBillType,queryDefaultBillByUserId,addBookInfo,removeBillType}
+		,queryBillType,queryDefaultBillByUserId,addBookInfo,removeBillType,querySystemIcon,addBillType}
 	}
 }
 export default urls 
