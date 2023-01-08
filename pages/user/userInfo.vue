@@ -26,7 +26,11 @@
 		<view class="head-bill">
 			<view class="head-bill-manage">
 				<view><text>账单管理</text></view>
-				<view class="right-class-view1"><image src="../../static/right.png" class="right-class"></image></view>
+				<view class="right-class-view1">
+					<navigator url="/pages/detail/myBookList/myBookList" open-type="navigate">
+						<image src="../../static/right.png" class="right-class"></image>
+					</navigator>
+				</view>
 			</view>
 			<p style="width:90%;height:1px;margin:22rpx auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"></p>
 			<view class="head-bill-export">
