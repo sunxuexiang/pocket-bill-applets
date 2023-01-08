@@ -15,23 +15,23 @@ const urls = class{
 			// 登录添加用户信息
 			let addUser = `${userUrl}bill-user/addUser`
 			//查询用户账单自定义
-			let queryBillDetailsCustomize=`${detailUrl}billBookInfoController/queryBillDetailsCustomize`
+			let queryBillDetailsCustomize=`${detailUrl}bill-manage/queryBillDetailsCustomize`
 			//查询默认账单
-			let queryDefaultBillByUserId=`${userUrl}billBookInfoController/queryDefaultBillByUserId`
+			let queryDefaultBillByUserId=`${userUrl}bill-manage/queryDefaultBillByUserId`
 			//查询用户所有账单
 			let queryBillByUserId=`${userUrl}bill-manage/queryBillByUserId`
 			//查询年度账单
 			let queryAnnualSummaryReportList = `${gatprojectUrl}billBookAnnualSummaryController/queryAnnualSummaryReportList`
 			// 查询记账列表所有图表
-			let queryBillType = `${url}bill-type/queryBillType`
+			let queryBillType = `${userUrl}bill-type/queryBillType`
 			// 记账
-			let addBookInfo = `${detailUrl}billBookInfoController/addBookInfo`
+			let addBookInfo = `${detailUrl}bill-manage/addBookInfo`
 			// 删除类别 
-			let removeBillType = `${url}bill-type/removeBillType`
+			let removeBillType = `${userUrl}bill-type/removeBillType`
 			// 查询系统类别
-			let querySystemIcon = `${url}bill-type/querySystemIcon`
+			let querySystemIcon = `${userUrl}bill-type/querySystemIcon`
 			// 添加类别
-			let addBillType = `${url}bill-type/addBillType`
+			let addBillType = `${userUrl}bill-type/addBillType`
 			//修改默认账单
 			let updateDefaultBill = `${userUrl}/bill-manage/updateDefaultBill`
 	    //修改账单权限批量
@@ -44,10 +44,11 @@ const urls = class{
 			let deleteUserBillPermession=`${userUrl}/bill-share/deleteUserBillPermession`
 			
 			let addShare=`${userUrl}/bill-share/addShare`
+			
 			return {queryUser,addUser,queryRecordByUserId,queryAnnualSummaryReportList
 			,queryBillType,queryDefaultBillByUserId,addBookInfo,removeBillType,querySystemIcon,addBillType,updateDefaultBill
 			,queryBillDetailsCustomize,queryBillByUserId,deleteUserBillPermession,updateUserBillPermession,queryUserByBookId
-			,updateShareBillBatch}
+			,updateShareBillBatch,addShare}
 
 	}
 }

@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="out">
-			<view v-for="(item,index) in bill" :key="index" @click="selectBill(index)">
+			<view v-for="(item,index) in bills" :key="index" @click="selectBill(index)">
 				<view class="row" :class="{active:item.select}">
 					<view style="font-weight: bold;">{{item.bookName}}</view>	
 					<view style="font-size: 13px; margin-top: 40rpx;">创建时间</view>
@@ -45,7 +45,7 @@
 						this.bills[i].select=false;
 					}
 				}
-				uni.setStorageSync('selectBill',JSON.stringify(selectBill));
+				uni.setStorageSync('selectBill',selectBill);
 				let updateDefaultBill=urls.m().updateDefaultBill+"?bookId="+selectBill.bookId;
 				requestApi(updateDefaultBill,null).then((res)=>{
 					let that=this;
