@@ -1,11 +1,15 @@
 <template>
-	<view class="head-backColor">
+	<view>
 		<view class="head-class">
 			
 		</view>
-		<view class="head-text-class"><text style="font-size:18px">账单</text></view>
 		<view>
-			<picker mode="date" :value="date" fields="year" :start="startDate" :end="endDate" @change="dateChange"><view>{{date}}</view></picker>
+			<picker mode="date" :value="date" fields="year" :start="startDate" :end="endDate" @change="dateChange" style="margin-top:-224rpx;margin-left:22rpx">
+				<view style="display:flex;flex-wrap: wrap;">
+					<view>{{date}}年</view>
+					<view style="width:60rpx;height:60rpx"><image src="../../static/down.png" style="width:40rpx;height:40rpx"></image></view>
+				</view>
+			</picker>
 		</view>
 		<view class="head-balance-class"><text style="font-size:15px;color:#b3b3b3 ;">结余</text></view>
 		<view class="" style="fontSize:10px;margin: 20rpx 0px 0px 320rpx">
@@ -25,26 +29,27 @@
 			<text v-show="isDot">.</text>
 			<text>{{ yearTotalOutBackPrice }}</text>
 		</view>
-		
-		<view>
-			<view style="margin-top:82rpx">
-				<text style="color:#b3b3b3;margin-left:10%">月份</text>
-				<text style="color:#b3b3b3;margin-left:12%">收入</text>
-				<text style="color:#b3b3b3;margin-left:13%">支出</text>
-				<text style="color:#b3b3b3;margin-left:14%">结余</text></view>
-		</view>
-		<p style="width:100%;height:1px;margin:22rpx auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"></p>
-		<view>
-			<view style="margin-top:24rpx" v-for="(item,index) in list">
-				<text style="color:#b3b3b3;margin-left:10%">{{item.billMonth}}月</text>
-				<text style="color:#b3b3b3;margin-left:17%">{{item.monthIn}}</text>
-				<text style="color:#b3b3b3;margin-left:132rpx">{{item.monthOut}}</text>
-				<text style="color:#b3b3b3;margin-left:18%">{{item.balance}}</text>
-				<p style="width:100%;height:1px;margin:22rpx auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"></p>
+		<view style="padding-bottom:160rpx;margin-top:-45rpx; " >
+			<view>
+				<view style="margin-top:75rpx">
+					<text style="color:#b3b3b3;margin-left:10%">月份</text>
+					<text style="color:#b3b3b3;margin-left:12%">收入</text>
+					<text style="color:#b3b3b3;margin-left:13%">支出</text>
+					<text style="color:#b3b3b3;margin-left:14%">结余</text>
+				</view>
+			</view>
+			<p style="width:100%;height:1px;margin:22rpx auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"></p>
+			<view style="margin-top:12px;display:flex;flex-wrap: wrap;">
+				<view style="display:flex;flex-wrap: wrap;" v-for="(item,index) in list">
+					<view style="width:169rpx;margin-left:60rpx"><text style="color:#b3b3b3;">{{item.billMonth}}月</text></view>
+					<view style="width:169rpx;"><text style="color:#b3b3b3;">{{item.monthIn}}</text></view>
+					<view style="width:169rpx;"><text style="color:#b3b3b3;">{{item.monthOut}}</text></view>
+					<view style="width:169rpx;"><text style="color:#b3b3b3;">{{item.balance}}</text></view>
+					<p style="width:100%;height:1px;margin:22rpx auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"></p>
+				</view>
 			</view>
 		</view>
-		
-		<tab-bar :currentPage="3"></tab-bar>
+		<tab-bar :currentPage="3" style="padding-bottom:95px;"></tab-bar>
 	</view>
 </template>
 
@@ -93,11 +98,10 @@
 						}
 					});
 				} else {
-					let queryAnnualSummaryReportList = urls.m().queryAnnualSummaryReportList+'?year='+this.date+'&bookId='+2;
+					let queryAnnualSummaryReportList = urls.m().queryAnnualSummaryReportList+'?year='+this.date+'&bookId='+6;
 					requestApi(queryAnnualSummaryReportList,null).then((res)=>{
 						let data = res[1].data.result
 						this.list = res[1].data.result.data;
-						debugger;
 						this.totalprice(data.yearTotalBalance,'balane')
 						this.totalprice(data.yearTotalOut,'out')
 						this.totalprice(data.yearTotalIn,'in')
@@ -133,7 +137,7 @@
 						}
 					}
 				},
-				dateChange(e) {
+				dateChange(e) {  
 					this.date = e.target.value.slice(0,7);
 					let queryAnnualSummaryReportList = urls.m().queryAnnualSummaryReportList+'?year='+this.date+'&bookId='+2;
 					requestApi(queryAnnualSummaryReportList,null).then((res)=>{
@@ -169,7 +173,7 @@ export default {
 <style>
 	.head-class{
 		width: 100%;
-		height: 400rpx;
+		height: 262rpx;
 		background-color: #ffda66;
 	}
 	.head-backColor{
@@ -180,7 +184,7 @@ export default {
 		margin: -350rpx 0px 0px 330rpx;
 	}
 	.head-balance-class{
-		margin: 50rpx 0px 0px 330rpx;
+		margin: -13rpx 0px 0px 330rpx;
 	}
 	.head-income{
 		margin: 16rpx 0px 0px 0px;

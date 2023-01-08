@@ -18,7 +18,7 @@
 		{
 			"path": "pages/bill/bill",
 			"style": {
-				"navigationBarTitleText": "口袋账本",
+				"navigationBarTitleText": "账单",
 				"navigationBarBackgroundColor": "#ffda66"
 			}
 		},
@@ -40,6 +40,20 @@
 			"path": "pages/addBill/addBill",
 			"style": {
 				"navigationBarTitleText": "记账",
+				"navigationBarBackgroundColor": "#ffda66"
+			}
+		},
+		{
+			"path": "pages/setting/settingIcon",
+			"style": {
+				"navigationBarTitleText": "类别设置",
+				"navigationBarBackgroundColor": "#ffda66"
+			}
+		},
+		{
+			"path": "pages/about/about",
+			"style": {
+				"navigationBarTitleText": "关于我们",
 				"navigationBarBackgroundColor": "#ffda66"
 			}
 		}

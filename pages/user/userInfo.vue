@@ -15,11 +15,11 @@
 				<view class="check-day-text">打卡天数</view>
 			</view>
 			<view class="book-keep-days">
-				<view style="margin-left: 52rpx;font-weight: bold;font-size: 40rpx;color: #737373;"><text>{{userInfo.recordCount}}</text></view>
+				<view style="margin-left: 52rpx;font-weight: bold;font-size: 40rpx;color: #737373;"><text>{{userInfo.billCount}}</text></view>
 				<view class="check-day-text">记账次数</view>
 			</view>
 			<view class="book-days">
-				<view style="margin-left: 52rpx;font-weight: bold;font-size: 40rpx;color: #737373;"><text>{{userInfo.recordCount}}</text></view>
+				<view style="margin-left: 52rpx;font-weight: bold;font-size: 40rpx;color: #737373;"><text>{{userInfo.billDay}}</text></view>
 				<view class="check-day-text">记账天数</view>
 			</view>
 		</view>
@@ -44,7 +44,7 @@
 			</view>
 		</view>
 		<view class="head-setting">
-			<view class="head-bill-export">
+			<view class="head-bill-export" @click="clickAbout()">
 				<view><text>关于我们</text></view>
 				<view class="right-class-view2"><image src="../../static/right.png" class="right-class"></image></view>
 			</view>
@@ -66,7 +66,7 @@
 	    export default {
 	        data() {
 	            return {
-					userInfo: {userName:'',userImg:'',recordCount:''}
+					userInfo: {userName:'',userImg:'',recordCount:'',billCount:'',billDay:''}
 	            };
 	        },
 	        components:{
@@ -85,18 +85,25 @@
 				} else {
 					let queryUser = urls.m().queryUser
 					requestApi(queryUser,null).then((res)=>{
-						let data = res[1].data.msg
+						let data = res[1].data.result
 						this.userInfo.userName=data.userName; 
 						this.userInfo.userImg=data.userImg
+						this.userInfo.billCount = data.billCount
+						this.userInfo.billDay = data.billDay
 					});
 					let queryRecordByUserId = urls.m().queryRecordByUserId
 					requestApi(queryRecordByUserId,null).then((res)=>{
-						let data = res[1].data.msg
+						let data = res[1].data.result
 						this.userInfo.recordCount = data
 					})
 				}
 			},
 	        methods: {
+				clickAbout:function(){
+					uni.navigateTo({
+						url: '/pages/about/about'
+					});
+				}
 			},
 	    }
 </script>
