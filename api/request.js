@@ -22,21 +22,23 @@ const urls = class{
 		let queryBillByUserId=`${userUrl}bill-manage/queryBillByUserId`
 		//查询年度账单
 		let queryAnnualSummaryReportList = `${gatprojectUrl}billBookAnnualSummaryController/queryAnnualSummaryReportList`
-		// 查询记账列表所有图表
-		let queryBillType = `${url}bill-type/queryBillType`
 		// 记账
 		let addBookInfo = `${detailUrl}billBookInfoController/addBookInfo`
-		// 删除类别 
-		let removeBillType = `${url}bill-type/removeBillType`
 		// 查询系统类别
-		let querySystemIcon = `${url}bill-type/querySystemIcon`
+		let querySystemIcon = `${userUrl}bill-type/querySystemIcon`
 		// 添加类别
-		let addBillType = `${url}bill-type/addBillType`
+		let addBillType = `${userUrl}bill-type/addBillType`
 		//修改默认账单
 		let updateDefaultBill = `${userUrl}/bill-manage/updateDefaultBill`
+		// 删除类别
+		let removeBillType = `${userUrl}bill-type/removeBillType`
+		// 查询记账列表所有图表
+		let queryBillType = `${userUrl}bill-type/queryBillType`
+		// 查询年度报表
+		let billBookReportGatherController = `${gatprojectUrl}billBookReportGatherController/queryReporyByYear`
 		return {queryUser,addUser,queryRecordByUserId,queryAnnualSummaryReportList
-		,queryBillType,queryDefaultBillByUserId,addBookInfo,removeBillType,querySystemIcon,addBillType,updateDefaultBill
-		,queryBillDetailsCustomize,queryBillByUserId}
+		,queryDefaultBillByUserId,addBookInfo
+		,queryBillDetailsCustomize,queryBillByUserId,querySystemIcon,addBillType,updateDefaultBill,removeBillType,queryBillType,billBookReportGatherController}
 	}
 }
 export default urls 
