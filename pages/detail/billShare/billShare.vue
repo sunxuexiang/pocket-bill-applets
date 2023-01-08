@@ -50,7 +50,7 @@
 				uni.showActionSheet({
 					itemList: this.adminOperator,
 					success:  (res)=> {
-						const selectBill=JSON.parse(uni.getStorageSync('selectBill'));
+						const selectBill=uni.getStorageSync('selectBill');
 						let shareId=this.users[index].shareId;
 						if(res.tapIndex===0||res.tapIndex===1){
 							let sharePower=res.tapIndex+1;
@@ -69,7 +69,7 @@
 			},
 			shareNewUser(){
 				debugger;
-				const selectbill=JSON.parse(uni.getStorageSync("selectBill"));
+				const selectbill=uni.getStorageSync("selectBill");
 				uni.share({
 				    provider: 'weixin',
 				    scene: "WXSceneSession",
@@ -106,7 +106,7 @@
 			// }
 		},
 		onLoad(){
-			const selectBill=JSON.parse(uni.getStorageSync("selectBill"));
+			const selectBill=uni.getStorageSync("selectBill");
 			this.bookName=selectBill.bookName;
 
 			let queryUserByBookId=urls.m().queryUserByBookId+"?bookId="+selectBill.bookId;

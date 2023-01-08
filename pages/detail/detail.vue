@@ -260,9 +260,9 @@
 					}
 				});
 			}
-			const bookId=options.bookId;
-			const userId=options.userId;
-			if(bookId!==""){
+			const bookId=(options!==""&&options!==undefined)?options.bookId:"";
+			const userId=(options!==""&&options!==undefined)?options.userId:"";
+			if(bookId!==""&&bookId!==undefined){
 				let data={"shareBookId":bookId,"userId":userId,"sharePower":2,"bookType":1}
 				requestApi(urls.m().addShare,data).then((res)=>{
 					requestApi(urls.m().queryDefaultBillByUserId,null).then((res)=>{
@@ -273,7 +273,7 @@
 					});
 				});
 			}else{
-				const selectBill=JSON.parse(uni.getStorageSync('selectBill'));
+				const selectBill=uni.getStorageSync('selectBill');
 				if(selectBill !==""){
 					this.bookName=selectBill.bookName;
 					this.queryBillDetailsCustomize();
