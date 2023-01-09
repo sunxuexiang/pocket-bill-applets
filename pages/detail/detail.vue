@@ -17,8 +17,8 @@
 			<text class="expenseMoney">{{monthOut}}</text>
 		</view>
 		
-		<view class="flex">
-			<text class="billbook">{{selectBill}}</text>
+		<view class="flex" >
+			<text class="billbook">{{bookName}}</text>
 			<view>
 				<navigator url="/pages/detail/myBookList/myBookList" open-type="navigate">
 					<image class="lrarraw" src="/static/images/lrarrow.png"></image>
@@ -141,7 +141,7 @@
 				textVal: "",
 				year:(new Date()).getFullYear()+"年",
 				month:(new Date()).getMonth()+1+"月",
-				selectBill:"",
+				bookName:"",
 				monthIn:"",
 				monthOut:"",
 				billDetails:[],
@@ -249,7 +249,7 @@
 				
 			}
 		},
-		onLoad(){
+		onLoad(options){
 			let userinfo = uni.getStorageSync('token');
 			if (userinfo == '') {
 				uni.navigateTo({
@@ -260,19 +260,34 @@
 					}
 				});
 			}
-			const selectBill=JSON.parse(uni.getStorageSync('selectBill'));
-			if(selectBill !==""){
-				this.selectBill=selectBill.bookName;
-				this.queryBillDetailsCustomize();
-			}else{
-				//需要从数据库中查
-				requestApi(urls.m().queryDefaultBillByUserId,null).then((res)=>{
-					const tmpSelectBill=res[1].data.result;
-					uni.setStorageSync("selectBill",tmpSelectBill);
-					this.selectBill=tmpSelectBill.bookName;
-					this.queryBillDetailsCustomize();
+			const bookId=(options!==""&&options!==undefined)?options.bookId:"";
+			const userId=(options!==""&&options!==undefined)?options.userId:"";
+			if(bookId!==""&&bookId!==undefined){
+				let data={"shareBookId":bookId,"userId":userId,"sharePower":2,"bookType":1}
+				requestApi(urls.m().addShare,data).then((res)=>{
+					requestApi(urls.m().queryDefaultBillByUserId,null).then((res)=>{
+						const selectBill=res[1].data.result;
+						uni.setStorageSync("selectBill",selectBill);
+						this.bookName=selectBill.bookName;
+						this.queryBillDetailsCustomize();
+					});
 				});
+			}else{
+				const selectBill=uni.getStorageSync('selectBill');
+				if(selectBill !==""){
+					this.bookName=selectBill.bookName;
+					this.queryBillDetailsCustomize();
+				}else{
+					//需要从数据库中查
+					requestApi(urls.m().queryDefaultBillByUserId,null).then((res)=>{
+						const tmpSelectBill=res[1].data.result;
+						uni.setStorageSync("selectBill",tmpSelectBill);
+						this.bookName=tmpSelectBill.bookName;
+						this.queryBillDetailsCustomize();
+					});
+				}
 			}
+			
 		},
 		filters:{
 			formatDate(date){

@@ -36,9 +36,17 @@ const urls = class{
 		let queryBillType = `${userUrl}bill-type/queryBillType`
 		// 查询年度报表
 		let billBookReportGatherController = `${gatprojectUrl}billBookReportGatherController/queryReporyByYear`
+		let addShare=`${userUrl}/bill-share/addShare`
+		let deleteUserBillPermession=`${userUrl}/bill-share/deleteUserBillPermession`
+		let updateUserBillPermession=`${userUrl}/bill-share/updateUserBillPermession`
+		//查询账单所有用户
+		let queryUserByBookId = `${userUrl}/bill-share/queryUserByBookId`
+		//修改账单权限批量
+		let updateShareBillBatch = `${userUrl}/bill-share/updateShareBillBatch`
 		return {queryUser,addUser,queryRecordByUserId,queryAnnualSummaryReportList
 		,queryDefaultBillByUserId,addBookInfo
-		,queryBillDetailsCustomize,queryBillByUserId,querySystemIcon,addBillType,updateDefaultBill,removeBillType,queryBillType,billBookReportGatherController}
+		,queryBillDetailsCustomize,queryBillByUserId,querySystemIcon,addBillType,updateDefaultBill,
+		removeBillType,queryBillType,billBookReportGatherController,addShare,deleteUserBillPermession,updateUserBillPermession,queryUserByBookId,updateShareBillBatch}
 	}
 }
 export default urls 
