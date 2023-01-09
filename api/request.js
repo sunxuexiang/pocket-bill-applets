@@ -17,7 +17,7 @@ const urls = class{
 		//查询用户账单自定义
 		let queryBillDetailsCustomize=`${detailUrl}billBookInfoController/queryBillDetailsCustomize`
 		//查询默认账单
-		let queryDefaultBillByUserId=`${userUrl}billBookInfoController/queryDefaultBillByUserId`
+		let queryDefaultBillByUserId=`${userUrl}bill-manage/queryDefaultBillByUserId`
 		//查询用户所有账单
 		let queryBillByUserId=`${userUrl}bill-manage/queryBillByUserId`
 		//查询年度账单
@@ -43,9 +43,13 @@ const urls = class{
 		let queryUserByBookId = `${userUrl}/bill-share/queryUserByBookId`
 		//修改账单权限批量
 		let updateShareBillBatch = `${userUrl}/bill-share/updateShareBillBatch`
+		// 查询月度报表
+		let queryReporyByMonth = `${gatprojectUrl}billBookReportGatherController/queryReporyByMonth`
+		// 查询周报表
+		let queryReporyByWeek = `${gatprojectUrl}billBookReportGatherController/queryReporyByWeek`
 		return {queryUser,addUser,queryRecordByUserId,queryAnnualSummaryReportList
-		,queryDefaultBillByUserId,addBookInfo
-		,queryBillDetailsCustomize,queryBillByUserId,querySystemIcon,addBillType,updateDefaultBill,
+		,queryDefaultBillByUserId,addBookInfo,queryReporyByWeek
+		,queryBillDetailsCustomize,queryBillByUserId,querySystemIcon,addBillType,updateDefaultBill,queryReporyByMonth,
 		removeBillType,queryBillType,billBookReportGatherController,addShare,deleteUserBillPermession,updateUserBillPermession,queryUserByBookId,updateShareBillBatch}
 	}
 }

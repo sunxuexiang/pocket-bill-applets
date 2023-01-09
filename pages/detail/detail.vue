@@ -224,7 +224,7 @@
 				this.currents = currents;
 			},
 			queryBillDetailsCustomize(){
-				const selectBill=JSON.parse(uni.getStorageSync('selectBill'));
+				const selectBill=uni.getStorageSync('selectBill');
 				
 				let year=this.year.substr(0,this.year.length-1);
 				let month=this.month.substr(0,this.month.length-1);
