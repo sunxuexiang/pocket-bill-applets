@@ -157,12 +157,11 @@
 					requestApi(queryBillType,null).then((res)=>{
 						this.list = res[1].data.result
 					})
-					let queryDefaultBillByUserId = urls.m().queryDefaultBillByUserId
-					requestApi(queryDefaultBillByUserId,null).then((res)=>{
-						let data = res[1].data.result;
-						this.bookId = data.bookId;
-						this.bookName = data.bookName;
-					})
+					const selectBill=uni.getStorageSync('selectBill');
+					if (selectBill != '') {
+						this.bookId = selectBill.bookId;
+						this.bookName = selectBill.bookName;
+					}
 				},
 				clickItem:function(item) {
 					this.positionIds = item.typeId
