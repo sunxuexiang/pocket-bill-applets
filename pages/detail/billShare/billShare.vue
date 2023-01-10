@@ -16,15 +16,17 @@
 		<view class="out">
 			<view v-for="(item,index) in users" :key="index" @click="selectUser(index)">
 				<view class="row" hover-class="viewclick">
-					<view style="font-weight: bold;">{{item.userImg}}</view>	
-					<view style="font-weight: bold;">{{item.userName}}</view>	
-					<view style="font-size: 10px; margin-top: -50rpx;" :class="{admin:item.sharePower=='0'}">
+					<view class="icon-class" >
+						<image :src="item.userImg" class="icon-img">
+					</view>
+					<view style="font-weight:bold;text-indent:-22rpx;width:133rpx;padding-left:34px;padding-left: 38px;margin-top:-17rpx;font-size:15px;">{{item.userName}}</view>	
+					<view style="font-size:10px;margin-top:-27px;width:85rpx;padding-left:64rpx;font-size:14px;" :class="{admin:item.sharePower=='0'}">
 						{{item.sharePower | formatPower}}
 					</view>	
 				</view>
 			</view>
 			<view class="row" style="border:1px dashed  #d9d9d9;text-indent: 80rpx;line-height: 280rpx;" @click="shareNewUser()">
-				<image style="width: 50rpx;height: 50rpx;" src="/static/images/addshare.png" ></image>
+				<image style="width: 50rpx;height: 50rpx;" src="../../../static/image/addshare.jpg" ></image>
 			</view>
 		</view>
 	</view>
@@ -147,14 +149,15 @@
 			height: 250rpx;
 			margin-left: 25rpx;
 			margin-top: 20rpx;
-			text-indent: 30rpx;
-			line-height: 90rpx;
+			// text-indent: 30rpx;
+			line-height: 90rpx; 
 			background-color: white;
 			justify-content: center;
 			border-radius: 10px;
 			border-style:outset;
 			border-width:1px;
 		    border:1px solid #d9d9d9;
+			box-shadow: 1.5px 1px 1px 1px #f2f2f2;
 		}
 		.admin{
 			color: red;
@@ -162,6 +165,19 @@
 	}
 	.viewclick{
 		opacity: 0.5;
+	}
+	.icon-class{
+		border-radius:100px;
+		overflow:hidden;
+		background-color:rgb(247, 247, 247);
+		margin:30rpx 0rpx 0rpx 42rpx;
+		width: 120rpx;
+		height: 120rpx;
+	}
+	.icon-img{
+		margin: 0rpx ​0rpx 0rpx 0rpx;
+		width: 120rpx;
+		height: 120rpx;
 	}
 </style>
 

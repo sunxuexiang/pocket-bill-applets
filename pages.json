@@ -11,7 +11,7 @@
 		{
 			"path": "pages/chart/chart",
 			"style": {
-				"navigationBarTitleText": "口袋账本",
+				"navigationBarTitleText": "图表",
 				"navigationBarBackgroundColor": "#ffda66"
 			}
 		},
