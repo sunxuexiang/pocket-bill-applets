@@ -641,7 +641,7 @@
 	// }
 
 	.uni-icon {
-		background-image: url(../../../static/images/wrong.png); 
+		background-image: url("../../../static/down.png");   
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;

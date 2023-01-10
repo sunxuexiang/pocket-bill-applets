@@ -15,7 +15,7 @@
 				<view class="check-day-text">打卡天数</view>
 			</view>
 			<view class="book-keep-days">
-				<view style="margin-left: 52rpx;font-weight: bold;font-size: 40rpx;color: #737373;"><text>{{userInfo.billCount}}</text></view>
+				<view style="margin-left: 34rpx;font-weight: bold;font-size: 40rpx;color: #737373;"><text>{{userInfo.billCount}}</text></view>
 				<view class="check-day-text">记账次数</view>
 			</view>
 			<view class="book-days">

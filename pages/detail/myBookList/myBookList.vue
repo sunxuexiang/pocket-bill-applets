@@ -17,10 +17,11 @@
 	import {requestApi} from '../../../api/api.js'
 	export default {
 		onLoad(option) { //option为object类型，会序列化上个页面传递的参数
+			let selectBill = uni.getStorageSync('selectBill')
 			requestApi(urls.m().queryBillByUserId,null).then((res)=>{
 				let result=res[1].data.result;
 				for(let i=0;i<result.length;i++){
-					if(result[i].bookType==='1'){
+					if(result[i].bookId===selectBill.bookId){
 						result[i].select=true;
 					}else{
 						result[i].select=false;
@@ -93,7 +94,7 @@
 			width: 220rpx;
 			height: 260rpx;
 			margin-left: 25rpx;
-			margin-top: 20rpx;
+			margin-top: 43rpx;
 			text-indent: 30rpx;
 			line-height: 90rpx;
 			background-color: #d9d9d9;
@@ -102,9 +103,9 @@
 			
 		}
 		.active{
-			background-color: #EFF8FF;
-			color: #0085FF;
-			border: 1rpx solid #0085FF;
+			background-color: #ffda66;
+			color: black;
+			border: 1rpx solid #ffda66;
 		}
 	}
 </style>
