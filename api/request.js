@@ -25,7 +25,7 @@ const urls = class{
 			// 查询记账列表所有图表
 			let queryBillType = `${userUrl}bill-type/queryBillType`
 			// 记账
-			let addBookInfo = `${detailUrl}bill-manage/addBookInfo`
+			let addBookInfo = `${detailUrl}billBookInfoController/addBookInfo`
 			// 删除类别 
 			let removeBillType = `${userUrl}bill-type/removeBillType`
 			// 查询系统类别
