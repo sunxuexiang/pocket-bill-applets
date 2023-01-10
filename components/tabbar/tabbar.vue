@@ -4,7 +4,7 @@
             <view class="tabbar-item" v-for="(item,index) in tabList" :class="[item.centerItem ? 'center-item' : '']"
                 @click="changeItem(item)" :key="index">
                 <view class="item-top" :style="{padding: item.id == 2?0:'10rpx'}">
-                    <image :src="tabId==item.id?item.selectIcon:item.icon" mode=""></image>
+                    <image :src="tabId==item.id?item.selectIcon:item.icon" mode="" class="item-img"></image>
                 </view>
                 <view class="item-bottom" :class="[tabId==item.id ? 'item-active' : '']">
                     <text>{{item.text}}</text>
@@ -139,6 +139,12 @@
         display: block;
         position: relative;
     }
+	.tabbar-container .center-item .item-top .item-img{
+		width:90rpx;
+		height:90rpx;
+		margin-top:12rpx;
+		margin-left:1rpx;
+	}
 
     .tabbar-container .tabbar-item .item-top {
         width: 70rpx;
@@ -148,11 +154,11 @@
 
     .tabbar-container .center-item .item-top {
         flex-shrink: 0;
-        width: 130rpx;
-        height: 130rpx;
+        width: 110rpx;
+        height: 110rpx;
         position: absolute;
-        top: -67rpx;
-        left: calc(50% - 70rpx);
+        top: -48rpx;
+        left: calc(50% - 55rpx);
         border-radius: 50%;
         box-shadow: 0 0 5px #999;
         background-color: #FFFFFF;

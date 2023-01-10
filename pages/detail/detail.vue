@@ -42,19 +42,21 @@
 			<view v-for="(item,index) in billDetails" :key="index" >
 				<view class="row">
 					<view class="detailTop">
-						<view class=".detailTopItem" style="margin-left: 45rpx;">{{item.infoDate | formatDate}}</view>
-						<view class=".detailTopItem" style="margin-left: 50rpx;">收入 {{item.dayIn}}</view>
-						<view class=".detailTopItem" style="margin-left: 190rpx;">支出 {{item.dayOut}}</view>
+						<view class=".detailTopItem" style="margin-left: 45rpx;margin-top: 8rpx;">{{item.infoDate | formatDate}}</view>
+						<view class=".detailTopItem" style="margin-left: 55rpx;margin-top: 8rpx;">收入 {{item.dayIn}}</view>
+						<view class=".detailTopItem" style="margin-left: 98rpx;margin-top: 8rpx;">支出 {{item.dayOut}}</view>
 					</view>	
 					<view v-for="(itemIn,indexIn) in item.bookInfos" :key="indexIn" @click="selectBillDetail(indexIn)">
 						<view class="detailDown">
-							<text class=".detailDownItem" style="margin-left: 35rpx;width: 100rpx;">头像</text>
-							<text class=".detailDownItem" style="margin-left: 20rpx;width: 120rpx;">{{itemIn.typeId}}</text>
-							<text class=".detailDownItem" style="margin-left: 20rpx;width: 216rpx;">{{itemIn.infoRemark}}</text>
-							<text class=".detailDownItem" style="margin-left: 20rpx;width: 216rpx;">{{itemIn.infoMoney}}</text>
+							<view class="icon-class" >
+								<image :src="itemIn.infoImg" class="icon-img">
+							</view>
+							<text class=".detailDownItem" style="margin-left: -20rpx;width: 120rpx;">{{itemIn.typeName}}</text>
+							<text class=".detailDownItem" style="margin-left: -20rpx;width: 216rpx;">{{itemIn.infoRemark}}</text>
+							<text class=".detailDownItem" style="margin-left: 53rpx;width: 216rpx;color: #b3b3b3;">{{itemIn.infoMoney}}</text>
 						</view>
+						<p style="width:100%;height:1px;margin:0rpx auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"></p>
 					</view>
-						
 				</view>
 			</view>
 		</view>
@@ -310,6 +312,7 @@
 <style lang="scss" scoped>
 	.flex{
 		display: flex;
+		background-color: rgba(241,241, 241, 241);
 		.flag{
 			margin-left: 40rpx;
 		}
@@ -355,6 +358,19 @@
 			margin-top: 10rpx;
 			
 		}
+	}
+	.icon-class{
+		border-radius:100px;
+		overflow:hidden;
+		background-color:rgb(247, 247, 247);
+		margin:12rpx 0rpx 0rpx 43rpx;
+		width: 80rpx;
+		height: 80rpx;
+	}
+	.icon-img{
+		margin: 6rpx 0rpx 0rpx 6rpx;
+		width: 70rpx;
+		height: 70rpx;
 	}
 	.headStyle{
 		width: 750rpx;
@@ -446,12 +462,12 @@
 			.detailTop{
 				display: flex;
 				height: 60rpx;
-				background-color: #d9d9d9;
+				background-color: rgba(241,241, 241, 241);
 			}
 			.detailDown{
 				display: flex;
 				height: 105rpx;
-				background-color: #f0f0f0;
+				background-color: rgba(255,255, 255, 255);
 			}
 		}
 	}
@@ -459,7 +475,7 @@
 		display: inline-block;
 		height: 60rpx;
 		line-height: 50rpx;
-		font-size: 25rpx;
+		font-size: 22rpx;
 	}
 	.detailDownItem{
 		display: inline-block;

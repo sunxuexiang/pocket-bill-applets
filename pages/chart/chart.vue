@@ -272,7 +272,6 @@
 		onLoad:function() {
 			this.clickChange(2);
 			this.clickChange1(1);
-			this.ChartMethod('year');
 		}
     }
 </script>
